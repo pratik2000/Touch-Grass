@@ -13,7 +13,7 @@
   This app is purely for entertainment purposes and we do not accept any responsibility for any unintended use of this app.
   ## License:
   
-  Copyright © Thang Nguyen. All rights reserved. 
+  Copyright © Money. All rights reserved. 
   Licensed under the [MIT](https://opensource.org/licenses/MIT) license.
   ## Contribution:
   Anyone can contribute!
