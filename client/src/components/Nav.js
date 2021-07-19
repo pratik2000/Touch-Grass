@@ -4,38 +4,38 @@ import { Link, withRouter } from "react-router-dom";
 function Nav(props) {
   return (
     <div className="navigation">
-      <nav class="navbar navbar-expand navbar-dark bg-dark">
-        <div class="container">
-          <Link class="navbar-brand" to="/">
+      <nav className="navbar navbar-expand navbar-dark bg-dark">
+        <div className="container">
+          <Link className="navbar-brand" to="/">
             Touch Grass
           </Link>
 
           <div>
-            <ul class="navbar-nav ml-auto">
+            <ul className="navbar-nav ml-auto">
               <li
-                class={`nav-item  ${
+                className={`nav-item  ${
                   props.location.pathname === "/" ? "active" : ""
                 }`}
               >
-                <Link class="nav-link" to="/">
+                <Link className="nav-link" to="/">
                   Home
                 </Link>
               </li>
               <li
-                class={`nav-item  ${
+                className={`nav-item  ${
                   props.location.pathname === "/Map" ? "active" : ""
                 }`}
               >
-                <Link class="nav-link" to="/Map">
+                <Link className="nav-link" to="/Map">
                   Map
                 </Link>
               </li>
               <li
-                class={`nav-item  ${
+                className={`nav-item  ${
                   props.location.pathname === "/User" ? "active" : ""
                 }`}
               >
-                <Link class="nav-link" to="/User">
+                <Link className="nav-link" to="/User">
                   User
                 </Link>
               </li>
