@@ -2,7 +2,9 @@ import React from "react";
 
 function Home() {
   return (
-    <div className="home">
+    <div className="home" style={{ 
+      backgroundImage: `url(${process.env.PUBLIC_URL + '/grass.png'})` 
+    }}>
       <div class="container">
         <div class="row align-items-center my-5">
           <div class="col-lg-7">
