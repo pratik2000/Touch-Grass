@@ -1,0 +1,27 @@
+{
+  "name": "touch-grass",
+  "version": "1.0.0",
+  "description": "Social un-distancing app.",
+  "scripts": {
+    "start": "cd server && npm start",
+    "build": "cd client && npm run build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject",
+    "install": "cd server && npm i && cd ../client && npm i"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/thangnt336/Touch-Grass.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/thangnt336/Touch-Grass/issues"
+  },
+  "homepage": "https://github.com/thangnt336/Touch-Grass#readme",
+  "dependencies": {
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "react-scripts": "^4.0.3"
+  }
+}
