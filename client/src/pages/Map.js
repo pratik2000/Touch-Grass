@@ -1,28 +1,35 @@
 
 import React from "react";
+import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet'
 
-function Map() {
-  return (
-    <div className="map">
-      <div class="container">
-        <div class="row align-items-center my-5">
-          <div class="col-lg-7">
-            <img
-              class="img-fluid rounded mb-4 mb-lg-0"
-              src="http://placehold.it/900x400"
-              alt=""
-            />
-          </div>
-          <div class="col-lg-5">
-            <h1 class="font-weight-light">Map</h1>
-            <p>
-              Take a look at the world.
-            </p>
-          </div>
-        </div>
-      </div>
-    </div>
-  );
+function LocationMarker() {
+  const [position, setPosition] = useState(null)
+  const map = useMapEvents({
+    click() {
+      map.locate()
+    },
+    locationfound(e) {
+      setPosition(e.latlng)
+      map.flyTo(e.latlng, map.getZoom())
+    },
+  })
+
+  return position === null ? null : (
+    <Marker position={position}>
+      <Popup>You are here</Popup>
+    </Marker>
+  )
 }
 
-export default Map;
+render(
+  <MapContainer
+    center={{ lat: 51.505, lng: -0.09 }}
+    zoom={13}
+    scrollWheelZoom={false}>
+    <TileLayer
+      attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
+      url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+    />
+    <LocationMarker />
+  </MapContainer>,
+)
