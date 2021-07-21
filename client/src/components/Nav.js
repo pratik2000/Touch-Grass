@@ -1,43 +1,19 @@
 import React from "react";
 import { Link, withRouter } from "react-router-dom";
 
-function Nav(props) {
+function Nav() {
   return (
     <div className="navigation">
-      <nav className="navbar navbar-expand navbar-dark bg-dark">
+      <nav className="navbar navbar-expand navbar-dark fixed-top">
         <div className="container">
-          <Link className="navbar-brand" to="/">
-            Touch Grass
-          </Link>
-
-          <div>
+          <Link className="navbar-brand" to={"/sign-in"}>Touch Grass</Link>
+          <div className="collapse navbar-collapse" id="navbarTogglerDemo02">
             <ul className="navbar-nav ml-auto">
-              <li
-                className={`nav-item  ${
-                  props.location.pathname === "/" ? "active" : ""
-                }`}
-              >
-                <Link className="nav-link" to="/">
-                  Home
-                </Link>
+              <li className="nav-item">
+                <Link className="nav-link" to={"/sign-in"}>Login</Link>
               </li>
-              <li
-                className={`nav-item  ${
-                  props.location.pathname === "/Map" ? "active" : ""
-                }`}
-              >
-                <Link className="nav-link" to="/Map">
-                  Map
-                </Link>
-              </li>
-              <li
-                className={`nav-item  ${
-                  props.location.pathname === "/User" ? "active" : ""
-                }`}
-              >
-                <Link className="nav-link" to="/User">
-                  User
-                </Link>
+              <li className="nav-item">
+                <Link className="nav-link" to={"/sign-up"}>Sign up</Link>
               </li>
             </ul>
           </div>
