@@ -2,6 +2,7 @@ import React from "react";
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { BrowserRouter as Router, Route, Switch, Link } from "react-router-dom";
+
 // import { Nav, Footer, Home, Map, User, Login } from "./components";
 import Nav from "./components/Nav";
 import Footer from "./components/Footer";
@@ -10,6 +11,8 @@ import SignUp from "./components/signup.component";
 
 
 function App() {
+
+
   return (<Router>
     <div className="App">
       <Nav />
