@@ -12,7 +12,7 @@ import Nav from "./components/Nav";
 import Footer from "./components/Footer";
 import Login from "./components/login.component";
 import SignUp from "./components/signup.component";
-import Home from "./components/Home";
+import Home from "./pages/Home";
 //import Auth from '../src/utils/auth';
 
 const httpLink = createHttpLink({

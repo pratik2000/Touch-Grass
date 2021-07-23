@@ -8,7 +8,6 @@ const typeDefs = gql`
     password: String
     thoughts: [Thought]!
   }
-
   type Auth {
     token: ID!
     user: User
