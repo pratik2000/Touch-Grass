@@ -36,7 +36,7 @@ const client = new ApolloClient({
   link: authLink.concat(httpLink),
   cache: new InMemoryCache(),
 });
-
+/*
 function App() {
   let url = 'https://www.gofundme.com/f/touchgrass?utm_source=customer&utm_medium=copy_link&utm_campaign=p_cf+share-flow-1';
 
@@ -58,8 +58,8 @@ function App() {
       </div>
     </div></Router>
   );
-}
-/*
+}*/
+
 function App() {
   const [user, setUser] = useState(false)
 
@@ -90,7 +90,6 @@ function App() {
   </div>
   );
 }
-*/
 
 export default App;
 
