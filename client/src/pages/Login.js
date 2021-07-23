@@ -15,6 +15,8 @@ function Login() {
               <li className="nav-item">
                 <Link className="nav-link" to={"/sign-up"}>Sign up</Link>
               </li>
+
+
             </ul>
           </div>
         </div>
