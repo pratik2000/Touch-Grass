@@ -8,7 +8,12 @@
   - [Testing](#testing)
   - [Questions?](#questions)
   ## Description:
-  Touch Grass is an app that promotes creating new social connections in a time where social distancing is the norm. This app sends users to random points of interests to encourage social interaction.
+  
+  Touch Grass is an app that promotes creating new social connections in a time where social distancing is the norm. This app sends users to random points of interests to encourage social interaction. The main app no longer has the backing to make it to production, so its been forked by a cofounder and the homepage of the app is linked to a goFundMe page so the app may one day have the backing to go into production and change the world.
+  
+  GoFundMe: https://www.gofundme.com/manage/touchgrass
+  
+ 
   ## Usage:
   This app is purely for entertainment purposes and we do not accept any responsibility for any unintended use of this app.
   ## License:
