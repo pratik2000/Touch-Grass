@@ -1,40 +1,42 @@
 const { AuthenticationError } = require('apollo-server-express');
-const { User } = require('../models');
+const { User, Thought } = require('../models');
 const { signToken } = require('../utils/auth');
 
-
 const resolvers = {
+    Query: {
 
-  Query: {
-    profile: async (parent, { profileId }) => {
-      return Profile.findOne({ _id: profileId });
-    },
-  },
-  
-  Mutation: {
-    addProfile: async (parent, { name, email, password }) => {
-      const profile = await Profile.create({ name, email, password });
-      const token = signToken(profile);
+        user: async (parent, { username }) => {
+          return User.findOne({ username });
+        }
+      },
+      
+    Mutation: {
 
-      return { token, profile };
-    },
-    login: async (parent, { email, password }) => {
-      const profile = await Profile.findOne({ email });
+        addUser: async (parent, { username, email, password }) => {
+            const user = await User.create({ username, email, password });
+            const token = signToken(user);
+            return { token, user };
+          },
+          login: async (parent, { email, password }) => {
+            const user = await User.findOne({ email });
+      
+            if (!user) {
+              throw new AuthenticationError('No user found with this email address');
+            }
+      
+            const correctPw = await user.isCorrectPassword(password);
+      
+            if (!correctPw) {
+              throw new AuthenticationError('Incorrect credentials');
+            }
+      
+            const token = signToken(user);
+      
+            return { token, user };
+          },
+    }
+    
 
-      if (!profile) {
-        throw new AuthenticationError('No profile with this email found!');
-      }
-
-      const correctPw = await profile.isCorrectPassword(password);
-
-      if (!correctPw) {
-        throw new AuthenticationError('Incorrect password!');
-      }
-
-      const token = signToken(profile);
-      return { token, profile };
-    },
-  },
 };
 
 module.exports = resolvers;
