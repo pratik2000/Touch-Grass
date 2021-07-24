@@ -12,6 +12,7 @@ import Nav from "./components/Nav";
 import Footer from "./components/Footer";
 import Login from "./components/login.component";
 import SignUp from "./components/signup.component";
+import Home from "./pages/Home";
 //import Auth from '../src/utils/auth';
 
 const httpLink = createHttpLink({
@@ -42,16 +43,17 @@ function App() {
    <ApolloProvider client={client}>
       <Router>
         <div className="flex-column justify-flex-start min-100-vh">
-          <Header />
+
           <div className="container">
-            <Route exact path="/">
-              <Home />
-            </Route>
+            
             <Route exact path="/login">
               <Login />
             </Route>
             <Route exact path="/signup">
-              <Signup />
+              <SignUp />
+            </Route>
+            <Route exact path="/">
+              <Home />
             </Route>
           </div>
           <Footer />

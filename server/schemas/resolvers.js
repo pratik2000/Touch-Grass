@@ -1,7 +1,7 @@
 const { AuthenticationError } = require('apollo-server-express');
 const { User } = require('../models');
 const { signToken } = require('../utils/auth');
-const { userId } = context;
+
 
 const resolvers = {
   Query: {
@@ -36,13 +36,6 @@ const resolvers = {
 
   Mutation: {
 
-    /**this post mutation is likely to throw an error review later */
-    post: async (parent, args, context, info) =>
-    await context.prisma.link.create({data: {
-      url: args.url,
-      description: args.description,
-      postedBy: { connect: { id: userId } }
-    }}),
 
     addDestination: async (parent, args, context) =>
     await context.models.Destination.mutations.addDestination(JSON.parse(JSON.stringify(args.destination))),
