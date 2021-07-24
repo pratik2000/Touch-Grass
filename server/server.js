@@ -14,9 +14,10 @@ const server = new ApolloServer({
     context: authMiddleware,
 });
 
-app.use(express.urlencoded({ extended: true }));
+
 const app = express();
 server.applyMiddleware({ app });
+app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
 
