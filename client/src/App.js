@@ -11,7 +11,7 @@ import { ApolloClient, ApolloProvider, createHttpLink, InMemoryCache } from '@ap
 import Nav from "./components/Nav";
 import Footer from "./components/Footer";
 import Login from "./components/login.component";
-import SignUp from "./components/signup.component";
+import SignUp from "./pages/Signup";
 import Home from "./pages/Home";
 //import Auth from '../src/utils/auth';
 
@@ -62,38 +62,6 @@ function App() {
     </ApolloProvider>
   );
 }
-/*
-function App() {
-  const [user, setUser] = useState(false)
-
-  const handleLogin = e => {
-    e.preventDefault();
-    setUser(true);
-  }
-
-  const handleLogout = e => {
-    e.preventDefault();
-    setUser(false);
-  }
-
-  return (
-    <div className="App">
-      <Router>
-      <Nav />
-      <div className="auth-wrapper">
-        <div className="auth-inner">
-        <Route exact path='/' handleLogin={handleLogin} render={
-          props => <Login {...props} user={user.toString()}
-            handleLogin={handleLogin} />} />
-        <ProtectedRoute exact path='/login' user={user} handleLogout={handleLogout} component={Login} />
-        <Route exact path='/unauthorized' component={Unauthorized} />
-        </div>
-    </div>
-      </Router>
-  </div>
-  );
-}
-*/
 
 export default App;
 
