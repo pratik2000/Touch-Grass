@@ -1,6 +1,8 @@
 import React from "react";
 
 function Home() {
+
+  let url = 'https://www.gofundme.com/f/touchgrass';
   return (
     <div className="home" style={{ 
       backgroundImage: `url(${process.env.PUBLIC_URL + '/grass.png'})` 
@@ -15,10 +17,12 @@ function Home() {
             />
           </div>
           <div className="col-lg-5">
-            <h1 className="font-weight-light">Home</h1>
+            <h1 className="font-weight-light">Touch-Grass</h1>
             <p>
-              Welcome to Touch Grass!
+              Welcome to Touch Grass! This site is currently under construction and we are plannning on bringing this project to life as soon
+              as possible! We just need to hit our goal of 1k to bring this app into production if you contribute today click the link below!
             </p>
+            <a href = {url}>Donate Today!</a>
           </div>
         </div>
       </div>

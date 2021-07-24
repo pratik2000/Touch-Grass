@@ -38,21 +38,26 @@ const client = new ApolloClient({
 
 function App() {
 
-
-  return (<Router>
-    <div className="App">
-      <Nav />
-      <div className="auth-wrapper">
-        <div className="auth-inner">
-          <Switch>
-            <Route exact path='/' component={Login} />
-            <Route path="/sign-in" component={Login} />
-            <Route path="/sign-up" component={SignUp} />
-          </Switch>
-          <Footer/>
+  return (
+   <ApolloProvider client={client}>
+      <Router>
+        <div className="flex-column justify-flex-start min-100-vh">
+          <Header />
+          <div className="container">
+            <Route exact path="/">
+              <Home />
+            </Route>
+            <Route exact path="/login">
+              <Login />
+            </Route>
+            <Route exact path="/signup">
+              <Signup />
+            </Route>
+          </div>
+          <Footer />
         </div>
-      </div>
-    </div></Router>
+      </Router>
+    </ApolloProvider>
   );
 }
 /*
