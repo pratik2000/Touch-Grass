@@ -11,9 +11,8 @@ import { ApolloClient, ApolloProvider, createHttpLink, InMemoryCache } from '@ap
 import Nav from "./components/Nav";
 import Footer from "./components/Footer";
 import Login from "./components/login.component";
-import signup from "./pages/signup";
-import Home from "./pages/Home";
-import Auth from '../src/utils/auth';
+import SignUp from "./components/signup.component";
+//import Auth from '../src/utils/auth';
 
 const httpLink = createHttpLink({
   uri: '/graphql',
@@ -39,32 +38,55 @@ const client = new ApolloClient({
 
 function App() {
 
-return (
-<ApolloProvider client={client}>
-    <Router>
-        <div className="container-fluid">
 
-          <div className="container-fluid">
-            <Route exact path="/login">
-              <Home />
-            </Route>
-            <Route exact path="/">
-              <Login />
-            </Route>
-            <Route exact path="/signup">
-              <Signup />
-            </Route>
-            <Route exact path="/profiles/:username">
-
-            </Route>
-          </div>
-          <Footer />
+  return (<Router>
+    <div className="App">
+      <Nav />
+      <div className="auth-wrapper">
+        <div className="auth-inner">
+          <Switch>
+            <Route exact path='/' component={Login} />
+            <Route path="/sign-in" component={Login} />
+            <Route path="/sign-up" component={SignUp} />
+          </Switch>
+          <Footer/>
         </div>
-    </Router>
-    </ApolloProvider>
-
-);
+      </div>
+    </div></Router>
+  );
 }
+/*
+function App() {
+  const [user, setUser] = useState(false)
+
+  const handleLogin = e => {
+    e.preventDefault();
+    setUser(true);
+  }
+
+  const handleLogout = e => {
+    e.preventDefault();
+    setUser(false);
+  }
+
+  return (
+    <div className="App">
+      <Router>
+      <Nav />
+      <div className="auth-wrapper">
+        <div className="auth-inner">
+        <Route exact path='/' handleLogin={handleLogin} render={
+          props => <Login {...props} user={user.toString()}
+            handleLogin={handleLogin} />} />
+        <ProtectedRoute exact path='/login' user={user} handleLogout={handleLogout} component={Login} />
+        <Route exact path='/unauthorized' component={Unauthorized} />
+        </div>
+    </div>
+      </Router>
+  </div>
+  );
+}
+*/
 
 export default App;
 
