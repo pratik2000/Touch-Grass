@@ -4,67 +4,36 @@ const { signToken } = require('../utils/auth');
 
 
 const resolvers = {
+
   Query: {
-    getAll: () =>
-            new Promise(
-                async (resolve, reject) =>
-                    await Destination.find({}, (err, destination) =>
-                        err ? reject(err) : resolve(destination))),
-        getUsers: () =>
-            new Promise(
-                async (resolve, reject) =>
-                    await User.find({}, (err, users) =>
-                        err
-                            ? reject(err)
-                            : resolve(users))),
-        getUserDestination: (id) =>
-            new Promise(
-                async (resolve, reject) =>
-                    await Destination.find({ owner_id: id }, (err, destinations) =>
-                            err ? reject(err) : resolve(destinations)
-                              )),
-                              
-    getDestination: async (parent, args, context) =>
-    await context.models.Destination.queries.getAll(),
-    
-    getUsers: async (parent, args, context) =>
-    await context.models.Destination.queries.getUsers(),
-
-    getUserDestination: async (parent, args, context) =>
-    await context.models.Destination.queries.getUserDestination(),
+    profile: async (parent, { profileId }) => {
+      return Profile.findOne({ _id: profileId });
+    },
   },
-
+  
   Mutation: {
+    addProfile: async (parent, { name, email, password }) => {
+      const profile = await Profile.create({ name, email, password });
+      const token = signToken(profile);
 
-
-    addDestination: async (parent, args, context) =>
-    await context.models.Destination.mutations.addDestination(JSON.parse(JSON.stringify(args.destination))),
-
-    addUser: async (parent, args, context) =>
-    await context.models.Destination.mutations.addUser(JSON.parse(JSON.stringify(args.user))),
-
-    addUser: async (parent, { firstName, lastName, username, email, password }, context) => {
-      const user = await User.create({ firstName, lastName, username, email, password });
-      const token = signToken(user);    
-      return { token, user };
+      return { token, profile };
     },
+    login: async (parent, { email, password }) => {
+      const profile = await Profile.findOne({ email });
 
-    signin: async(parent, { email, password }, context) => {
-      const user = await User.findOne({ email });
-      
-      if(!user) {
-        throw new AuthenticationError('the email or password is incorrect!');
+      if (!profile) {
+        throw new AuthenticationError('No profile with this email found!');
       }
-      const correctPw = await user.isCorrectPassword(password);
-      
+
+      const correctPw = await profile.isCorrectPassword(password);
+
       if (!correctPw) {
-        throw new AuthenticationError('wrong email or Password!');
+        throw new AuthenticationError('Incorrect password!');
       }
-      
-      const token = signToken(user);
-      return { token, user };
-    },
 
+      const token = signToken(profile);
+      return { token, profile };
+    },
   },
 };
 
