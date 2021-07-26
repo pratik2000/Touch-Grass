@@ -1,34 +1,132 @@
-import React, { Component } from "react";
+import React, { useState } from 'react';
+import Auth from '../utils/auth';
+import { Link } from 'react-router-dom';
+import { ADD_USER } from '../utils/mutations';
+import { useMutation } from '@apollo/client';
 
-export default class SignUp extends Component {
-    render() {
-        return (
-            <form>
-                <h3>Sign Up</h3>
 
-                <div className="form-group">
-                    <label>Name</label>
-                    <input type="text" className="form-control" placeholder="John Doe" />
-                </div>
+import '../App.css';
 
-<br></br>
 
-                <div className="form-group">
-                    <label>Email</label>
-                    <input type="email" className="form-control" placeholder="johndoe@aol.com" />
-                </div>
+const Signup = () => {
 
-<br></br>
-                <div className="form-group">
-                    <label>Password</label>
-                    <input type="password" className="form-control" placeholder="minimum 8 characters" />
-                </div>
-<br></br>
-                <button type="submit" className="btn btn-success btn-block">Sign Up</button>
-                <p className="forgot-password text-right">
-                    Already registered <a href="/sign-in">sign in?</a>
-                </p>
-            </form>
-        );
+
+  const [formState, setFormState] = useState({ email: '', password: '', name: '' });
+  const [addUser] = useMutation(ADD_USER);
+
+  
+  const [showAlert, setShowAlert] = useState(false);
+
+  const handleChange = (event) => {
+    const { name, value } = event.target;
+
+    setFormState({
+      ...formState,
+      [name]: value,
+    });
+  };
+
+  const handleFormSubmit = async (event) => {
+    event.preventDefault();
+    console.log(formState);
+
+    try {
+
+      const mutationResponse = await addUser({
+
+        variables: {
+
+          email: formState.email,
+          password: formState.password,
+          name: formState.name,
+          
+        },
+      });
+      //const token = "";
+      const token = mutationResponse.data.addUser.token;
+      Auth.login(token);
+      console.log(">>>>>>>TOKEN>>>>>>>"+token);
+      window.location.assign('/home');
+
+    } catch (e) {
+      console.error(e);
+      setShowAlert(true);
     }
+
+    setFormState({
+      email: '',
+      password: '',
+      name: '',
+
+    });
+    window.location.reload();
+  };
+
+  return (
+    <>
+      <div className="flex flex-row mx-20">
+      
+
+        
+        <div className="flex flex-col">
+
+
+
+          <div className="flex flex-col">
+
+            <h2 className="flex justify-center">Sign up</h2>
+
+            <form className="flex flex-col justify-center" onSubmit={handleFormSubmit}>
+
+              <div className="flex flex-col">
+                <label className="font-mono" htmlFor="name">Name:</label>
+                <input
+                  className="ml-2"
+                  placeholder="name"
+                  name="name"
+                  type="text"
+                  id="name"
+                  value={formState.name}
+                  onChange={handleChange}
+                />
+              </div>
+
+              <div className="flex flex-col ml-10">
+                <label className="font-mono" htmlFor="email">Email:</label>
+                <input
+                  className="ml-3"
+                  placeholder="exampleaddress@email.com"
+                  name="email"
+                  type="email"
+                  id="email"
+                  value={formState.email}
+                  onChange={handleChange}
+
+                />
+              </div>
+
+              <div className="flex flex-col ml-10">
+                <label className="font-mono" htmlFor="pwd">Password:</label>
+                <input
+                  className="ml-3"
+                  placeholder="******"
+                  name="password"
+                  type="password"
+                  id="pwd"
+                  value={formState.password}
+                  onChange={handleChange}
+                />
+              </div>
+
+              <div className="flex justify-center pt-8">
+                <button className="flex justify-center py-2 px-4 " type="submit">Submit</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </>
+  )
 }
+
+export default Signup;

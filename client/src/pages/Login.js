@@ -3,9 +3,11 @@ import { Link } from 'react-router-dom';
 import { useMutation } from '@apollo/client';
 import { LOGIN_USER } from '../utils/mutations';
 import Auth from '../utils/auth';
+import Navbar from '../components/login.component';
 
 
-const Login = (props) => {
+const Login = () => {
+  
   const [formState, setFormState] = useState({ email: '', password: '' });
   const [signin, { error }] = useMutation(LOGIN_USER);
 
@@ -45,60 +47,58 @@ const Login = (props) => {
       password: '',
     });
   };
-    /*
-
-    <div className="navigation">
-    <nav className="navbar navbar-expand-lg navbar-light fixed-top">
-        <div className="container">
-          <Link className="navbar-brand" to={"/sign-in"}>Touch Grass</Link>
-          <div className="collapse navbar-collapse" id="navbarTogglerDemo02">
-            <ul className="navbar-nav ml-auto">
-              <li className="nav-item">
-                <Link className="nav-link" to={"/sign-in"}>Login</Link>
-              </li>
-              <li className="nav-item">
-                <Link className="nav-link" to={"/sign-up"}>Sign up</Link>
-              </li>
-            </ul>
-          </div>
-        </div>
-      </nav>
-    </div>
-
-
-
-
-    <div className="navigation">
-    <nav className="navbar navbar-expand-lg navbar-light fixed-top">
-        <div className="container">
-          
-        </div>
-      </nav>
-    </div>
-
-    */
+   
 
   return (
 
-    <form onSubmit={handleFormSubmit}>
-                <h3>Sign In</h3>
+    <div className="container">
 
-                <div className="form-group">
-                    <label>Email</label>
-                    <input type="email" className="form-control" placeholder="Enter email" />
-                </div>
-<br></br>
-                <div className="form-group">
-                    <label>Password</label>
-                    <input type="password" className="form-control" placeholder="Enter password" />
-                </div>
+   
 
-                    <br></br>
-                <button type="submit" className="btn btn-success btn-block">Submit</button>
-                <p className="forgot-password text-right">
-                     <a href="/signup">Need an account?</a>
-                </p>
-            </form>
+
+    <div className="container py-5">
+
+    
+      <h2 className="flex justify-content-center py-5">Sign in</h2>
+      <form onSubmit={handleFormSubmit}>
+
+        <div className="flex flex-col space-between py-5">
+          <label className="font-mono" htmlFor="email">Email address:</label>
+          <input
+            className="py-2 px-3 text grey-300"
+            placeholder="youremail@test.com"
+            name="email"
+            type="email"
+            id="email"
+            value={formState.email}
+            onChange={handleChange}
+          />
+        </div>
+
+        <div className="flex flex-col py-5">
+          <label className="font-mono" htmlFor="pwd">Password:</label>
+          <input
+            className="shadow appearance-none border rounded w-3/4 py-2 px-3 text grey-300 leading-tight focus:outline-none focus:shadow-outline ml-2"
+            placeholder="******"
+            name="password"
+            type="password"
+            id="pwd"
+            value={formState.password}
+            onChange={handleChange}
+          />
+        </div>
+
+        {error ? (
+          <div>
+            <p className="error-text">The provided credentials are incorrect</p>
+          </div>
+        ) : null}
+        <div className="flex justify-center">
+          <button className="flex justify-center py-2 px-4" type="submit">Submit</button>
+        </div>
+      </form>
+    </div>
+  </div>
     
   );
 }
