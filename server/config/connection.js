@@ -1,3 +1,5 @@
+const mongoose = require('mongoose');
+
 mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost/touch-grass', {
   
   
@@ -14,3 +16,5 @@ mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost/touch-grass', {
 } 
   
 );
+
+module.exports = mongoose.connection;
