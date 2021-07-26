@@ -10,7 +10,7 @@ import { setContext } from '@apollo/client/link/context';
 import { ApolloClient, ApolloProvider, createHttpLink, InMemoryCache } from '@apollo/client';
 import Nav from "./components/Nav";
 import Footer from "./components/Footer";
-import Login from "./components/login.component";
+import Login from "./pages/Login";
 import SignUp from "./pages/Signup";
 import Home from "./pages/Home";
 //import Auth from '../src/utils/auth';

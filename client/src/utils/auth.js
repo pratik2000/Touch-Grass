@@ -34,7 +34,7 @@ class Auth {
     return false;
   }
 
-  login(idToken) {
+  LOGIN_USER(idToken) {
     localStorage.setItem('id_token', idToken);
     window.location.assign('/login');
   }
