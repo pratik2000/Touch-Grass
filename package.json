@@ -13,7 +13,7 @@
     "dev": "concurrently \"cd server && npm run watch\" \"cd client && npm start\""
   },
   "keywords": [],
-  "author": "Team BABA",
+  "author": "Team Money",
   "license": "ISC",
   "devDependencies": {
     "concurrently": "^6.2.0"
