@@ -1,0 +1,153 @@
+
+
+
+------------Search record
+{
+  user(name: "Pratik")  {
+    _id
+    name
+    email
+  }
+}
+Ans:
+{
+  "data": {
+    "user": {
+      "_id": "60fe2401d7677179dc77efc1",
+      "name": "Pratik",
+      "email": "Pratik@mail.com"
+    }
+  }
+}
+
+
+---------------Mutations
+//Works....
+
+mutation {
+  addUser(
+    
+    name: "Pratik"    
+    email: "Pratik@mail.com"
+    password: "pw"    
+  ){    
+    user {
+      _id     	
+      name
+      email
+    }  
+  }
+}
+
+
+---
+mutation {
+  addUser(
+    
+    firstName: "Pratik"
+    lastName: "Patel"
+    username: "pratik2000"
+    email: "Pratik@mail.com"
+    password: "pw"
+  ){
+    
+    user {
+      _id
+    	
+    }  
+  }  
+}
+
+
+
+---------------All Users
+query users{ 
+  users {
+    firstName
+    lastName
+    username
+    email
+  }
+}
+
+
+------
+
+cd server && npm run seed && npm start
+
+>npm install && npm run seed && npm run develop
+
+---
+
+
+root\package.json
+develop": "concurrently \"cd server && npm run watch\" \"cd client && npm start\""
+
+Server\package.json
+develop": "concurrently \"cd server && npm run watch\" \"cd client && npm start\""
+
+
+-----------
+
+
+> db.users.find()
+> db.users.insert({"name":"Pratik","email":"pratik@mail.com","password":"pw"})
+WriteResult({ "nInserted" : 1 })
+> db.users.find()
+{ "_id" : ObjectId("60fe1b66fc9fb2fcc5fc8940"), "name" : "Pratik", "email" : "pratik@mail.com", "password" : "pw" }
+>
+
+
+
+show dbs
+Shell	mongo
+
+> show dbs
+> use mylib
+> show dbs
+
+> db.books.insert({"name":"Mongodb book"})
+WriteResult({ "nInserted" : 1 })
+
+> show collections
+books
+> db.books.find()
+{ "_id" : ObjectId("60fd7a324081708d87150a56"), "name" : "Mongodb book" }
+>
+
+
+
+
+
+----------------
+
+what I need help with: graphql and mongo db
+trying to connect the server side to client side using graphql as the API
+
+https://github.com/CaptainQuickWit/Touch-Grass
+
+npm run-script develop		<<<<
+npm run build
+npm start
+
+
+C:\Program Files\MongoDB\Server\5.0\bin
+mongod	...mongodb start server
+
+
+but first you need to install everything so at root do npm install right now im working on the front end, it'll be simpler when im done with that my issue is getting the front and back end to communicate
+
+### `npm start`			Runs the app in the development mode.\		Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+### `npm test`			Launches the test runner in the interactive watch mode.\		See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### `npm run build`		Builds the app for production to the `build` folder.\		It correctly bundles React in production mode and optimizes the build for the best performance.
+### `npm run eject`		**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+
+### Deployment
+
+This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+
+### `npm run build` fails to minify
+
+This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+
+

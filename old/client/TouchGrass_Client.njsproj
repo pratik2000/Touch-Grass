@@ -1,0 +1,117 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+    <PropertyGroup>
+        <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+        <SchemaVersion>2.0</SchemaVersion>
+        <ProjectGuid>{ed7eed19-5fb5-426c-b988-32e20d9c737e}</ProjectGuid>
+        <ProjectHome>.</ProjectHome>
+        <ProjectView>ShowAllFiles</ProjectView>
+        <StartupFile />
+        <WorkingDirectory>.</WorkingDirectory>
+        <OutputPath>.</OutputPath>
+        <ProjectTypeGuids>{3AF33F2E-1136-4D97-BBB7-1795711AC8B8};{349c5851-65df-11da-9384-00065b846f21};{9092AA53-FB77-4645-B42D-1CCCA6BD08BD}</ProjectTypeGuids>
+        <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">16.0</VisualStudioVersion>
+        <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+    </PropertyGroup>
+    <PropertyGroup Condition="'$(Configuration)' == 'Debug'" />
+    <PropertyGroup Condition="'$(Configuration)' == 'Release'" />
+    <ItemGroup>
+        <Content Include="package-lock.json" />
+        <Content Include="package.json" />
+        <Content Include="README.react.md" />
+        <Content Include="build\robots.txt" />
+        <Content Include="build\index.html" />
+        <Content Include="build\favicon.ico" />
+        <Content Include="build\asset-manifest.json" />
+        <Content Include="build\manifest.json" />
+        <Content Include="public\robots.txt" />
+        <Content Include="public\index.html" />
+        <Content Include="public\favicon.ico" />
+        <Content Include="public\manifest.json" />
+        <Content Include="src\App.css" />
+        <Content Include="src\index.css" />
+        <Content Include="src\seamless-grass-texture-free.jpg" />
+        <Content Include="src\logod.svg" />
+        <Content Include="src\App.js" />
+        <Content Include="src\App.test.js" />
+        <Content Include="src\constants.js" />
+        <Content Include="src\index.js" />
+        <Content Include="src\reportWebVitals.js" />
+        <Content Include="src\setupTests.js" />
+        <Content Include="build\static\css\2.4be38407.chunk.css" />
+        <Content Include="build\static\css\main.6a5fb536.chunk.css" />
+        <Content Include="build\static\js\2.de80eec8.chunk.js.LICENSE.txt" />
+        <Content Include="build\static\js\2.de80eec8.chunk.js" />
+        <Content Include="build\static\js\3.483ac8f3.chunk.js" />
+        <Content Include="build\static\js\main.6c2183ce.chunk.js" />
+        <Content Include="build\static\js\runtime-main.7eba79d1.js" />
+        <Content Include="build\static\media\seamless-grass-texture-free.630d1987.jpg" />
+        <Content Include="src\components\Footer.js" />
+        <Content Include="src\components\index.js" />
+        <Content Include="src\components\login.component.js" />
+        <Content Include="src\components\Nav.js" />
+        <Content Include="src\components\ProtectedRoute.js" />
+        <Content Include="src\components\signup.component.js" />
+        <Content Include="src\components\Unauthorized.js" />
+        <Content Include="src\images\touchgrasskid.jpg" />
+        <Content Include="src\pages\Home.js" />
+        <Content Include="src\pages\Login.js" />
+        <Content Include="src\pages\Signup.js" />
+        <Content Include="src\utils\auth.js" />
+        <Content Include="src\utils\mutations.js" />
+        <Content Include="src\utils\queries.js" />
+    </ItemGroup>
+    <ItemGroup>
+        <Folder Include="build" />
+        <Folder Include="build\static" />
+        <Folder Include="build\static\css" />
+        <Folder Include="build\static\js" />
+        <Folder Include="build\static\media" />
+        <Folder Include="public" />
+        <Folder Include="src" />
+        <Folder Include="src\components" />
+        <Folder Include="src\images" />
+        <Folder Include="src\pages" />
+        <Folder Include="src\utils" />
+    </ItemGroup>
+    <Import Project="$(MSBuildToolsPath)\Microsoft.Common.targets" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+    <Import Project="$(VSToolsPath)\Node.js Tools\Microsoft.NodejsToolsV2.targets" />
+    <ProjectExtensions>
+        <VisualStudio>
+          <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+            <WebProjectProperties>
+              <UseIIS>False</UseIIS>
+              <AutoAssignPort>True</AutoAssignPort>
+              <DevelopmentServerPort>0</DevelopmentServerPort>
+              <DevelopmentServerVPath>/</DevelopmentServerVPath>
+              <IISUrl>http://localhost:48022/</IISUrl>
+              <NTLMAuthentication>False</NTLMAuthentication>
+              <UseCustomServer>True</UseCustomServer>
+              <CustomServerUrl>http://localhost:1337</CustomServerUrl>
+              <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+            </WebProjectProperties>
+          </FlavorProperties>
+          <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}" User="">
+            <WebProjectProperties>
+              <StartPageUrl>
+              </StartPageUrl>
+              <StartAction>CurrentPage</StartAction>
+              <AspNetDebugging>True</AspNetDebugging>
+              <SilverlightDebugging>False</SilverlightDebugging>
+              <NativeDebugging>False</NativeDebugging>
+              <SQLDebugging>False</SQLDebugging>
+              <ExternalProgram>
+              </ExternalProgram>
+              <StartExternalURL>
+              </StartExternalURL>
+              <StartCmdLineArguments>
+              </StartCmdLineArguments>
+              <StartWorkingDirectory>
+              </StartWorkingDirectory>
+              <EnableENC>False</EnableENC>
+              <AlwaysStartWebServerOnDebug>False</AlwaysStartWebServerOnDebug>
+            </WebProjectProperties>
+          </FlavorProperties>
+        </VisualStudio>
+    </ProjectExtensions>
+</Project>

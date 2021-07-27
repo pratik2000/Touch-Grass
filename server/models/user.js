@@ -18,7 +18,6 @@ const userSchema = new Schema(
       type: String,
       required: true,
     },
-
   },
   {
     toJSON: {
@@ -42,6 +41,10 @@ userSchema.methods.isCorrectPassword = async function (password) {
   return bcrypt.compare(password, this.password);
 };
 
+userSchema.methods.GetPassWordHash = async function (password) {
+    const saltRounds = 10;
+    return await bcrypt.hash(password, saltRounds);
+};
 
 const User = model('User', userSchema);
 module.exports = User;
