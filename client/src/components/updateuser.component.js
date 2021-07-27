@@ -2,12 +2,12 @@ import React, { useState } from "react";
 import { Link } from 'react-router-dom';
 //import React, { useState } from 'react';
 import { useMutation } from '@apollo/client';
-import { LoginUSER } from '../utils/mutations';
+import { UpdatePW  } from '../utils/mutations';
 import Auth from '../utils/auth';
 
-const Login  = (props) => {
-    const [formState, setFormState] = useState ({ email: '', password: '' });
-    const [signin, { error }] = useMutation(LoginUSER);
+const Login = (props) => {
+    const [formState, setFormState] = useState({ email: '', password: '', newpassword: '' });
+    const [signin, { error }] = useMutation(UpdatePW );
 
     // set state for alert - CSS NOTE: CREATE A MODAL FOR ALERT
     const [showAlert, setShowAlert] = useState (false);
@@ -27,7 +27,8 @@ const Login  = (props) => {
             const mutationResponse = await signin({
                 variables: {
                     email: formState.email,
-                    password: formState.password
+                    password: formState.password,
+                    newpassword: formState.newpassword
                 },
             });
 
@@ -43,12 +44,13 @@ const Login  = (props) => {
         setFormState({
             email: '',
             password: '',
+            newpassword: ''
         });
     };
 
     return (
         <form onSubmit={handleFormSubmit}>
-            <h3>Sign In</h3>
+            <h3>Update</h3>
 
             <div className="form-group">
                 <label>Email</label>
@@ -63,7 +65,7 @@ const Login  = (props) => {
                 />
             </div>
             <br></br>
-            <div className="form-group2">
+            <div className="">
                 <label>Password</label>
                 <input
                     className="form-control"
@@ -72,6 +74,19 @@ const Login  = (props) => {
                     type="password"
                     id="password"
                     value={formState.password}
+                    onChange={handleChange}
+                />
+            </div>
+            <br></br>
+            <div className="">
+                <label>New Password</label>
+                <input
+                    className="form-control"
+                    placeholder="******"
+                    name="newpassword"
+                    type="password"
+                    id="newpassword"
+                    value={formState.newpassword}
                     onChange={handleChange}
                 />
             </div>
@@ -84,22 +99,9 @@ const Login  = (props) => {
 
             <br></br>
 
-
             <button type="submit" className="btn btn-success btn-block">Submit</button>
             <br></br>
             <br></br>
-
-            <Link className="btn btn-success btn-block no-underline text-md" to='/'>
-                Home
-              </Link>
-
-            <Link className="btn btn-success btn-block no-underline text-md" to='/Signup'>
-                Sign Up
-              </Link>
-
-            <p className="forgot-password text-right">
-                <a href="/Signup">Need an account?</a>
-            </p>
 
             <button className="btn no-underline text-md">
                 <a href="/">Home</a>

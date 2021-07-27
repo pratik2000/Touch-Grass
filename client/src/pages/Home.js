@@ -38,6 +38,14 @@ function Home() {
                       <div>
                           <Link to="/Signup"> Sign Up </Link>
                       </div>
+
+                      <div>
+                          <Link to="/UpdateUser">Update User</Link>
+                      </div>
+
+                      <div>
+                          <Link to="/DelUser">Delete User</Link>
+                      </div>
               </div>
                     
             </div>

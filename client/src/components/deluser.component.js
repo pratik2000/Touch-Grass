@@ -2,12 +2,12 @@ import React, { useState } from "react";
 import { Link } from 'react-router-dom';
 //import React, { useState } from 'react';
 import { useMutation } from '@apollo/client';
-import { LoginUSER } from '../utils/mutations';
+import { DeleteUSER } from '../utils/mutations';
 import Auth from '../utils/auth';
 
 const Login  = (props) => {
     const [formState, setFormState] = useState ({ email: '', password: '' });
-    const [signin, { error }] = useMutation(LoginUSER);
+    const [signin, { error }] = useMutation(DeleteUSER);
 
     // set state for alert - CSS NOTE: CREATE A MODAL FOR ALERT
     const [showAlert, setShowAlert] = useState (false);
@@ -48,7 +48,9 @@ const Login  = (props) => {
 
     return (
         <form onSubmit={handleFormSubmit}>
-            <h3>Sign In</h3>
+            <h1>DELETE PROFILE</h1>
+            <h3>Note: The Profile will be permanantly deleted!!!</h3>
+            <h3>Use Caution!!!</h3>
 
             <div className="form-group">
                 <label>Email</label>
@@ -85,22 +87,11 @@ const Login  = (props) => {
             <br></br>
 
 
-            <button type="submit" className="btn btn-success btn-block">Submit</button>
+            <button type="submit" className="btn btn-success btn-block">Delete</button>
             <br></br>
             <br></br>
-
-            <Link className="btn btn-success btn-block no-underline text-md" to='/'>
-                Home
-              </Link>
-
-            <Link className="btn btn-success btn-block no-underline text-md" to='/Signup'>
-                Sign Up
-              </Link>
-
-            <p className="forgot-password text-right">
-                <a href="/Signup">Need an account?</a>
-            </p>
-
+            
+            
             <button className="btn no-underline text-md">
                 <a href="/">Home</a>
             </button>

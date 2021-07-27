@@ -13,6 +13,8 @@ import Footer from "./components/Footer";
 import Login from "./components/login.component";
 import SignUp from "./pages/Signup";
 import SignUpC from "./components/signup.component";
+import DelUser from "./components/deluser.component";
+import UpdateUser from "./components/updateuser.component";
 import Home from "./pages/Home";
 //import Auth from '../src/utils/auth';
 
@@ -55,6 +57,12 @@ function App() {
             </Route>
             <Route exact path="/">
               <Home />
+            </Route>
+            <Route exact path="/deluser">
+                <DelUser />
+            </Route>
+            <Route exact path="/updateuser">
+                <UpdateUser />
             </Route>
           </div>
           <Footer />

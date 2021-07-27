@@ -6,14 +6,14 @@ function Login() {
     <div className="navigation">
 <nav className="navbar navbar-expand-lg navbar-light fixed-top">
         <div className="container">
-          <Link className="navbar-brand" to={"/sign-in"}>Touch Grass</Link>
+          <Link className="navbar-brand" to={"/Login"}>Touch Grass</Link>
           <div className="collapse navbar-collapse" id="navbarTogglerDemo02">
             <ul className="navbar-nav ml-auto">
               <li className="nav-item">
-                <Link className="nav-link" to={"/sign-in"}>Login</Link>
+                <Link className="nav-link" to={"/Login"}>Login</Link>
               </li>
               <li className="nav-item">
-                <Link className="nav-link" to={"/sign-up"}>Sign up</Link>
+                <Link className="nav-link" to={"/Signup"}>Sign up</Link>
               </li>300
             </ul>
           </div>
