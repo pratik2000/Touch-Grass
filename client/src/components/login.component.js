@@ -12,7 +12,7 @@ const Login  = (props) => {
     const [formState, setFormState] = useState ({ email: '', password: '' });
     const [signin, { error }] = useMutation(loginUser);
 
-    // set state for alert - CSS NOTE: CREATE A MODAL FOR ALERT
+
     const [showAlert, setShowAlert] = useState (false);
 
     const handleChange = (event) => {
@@ -42,7 +42,8 @@ const Login  = (props) => {
             console.log(e);
             setShowAlert(true);
         }
-        // clear form values
+
+        
         setFormState({
             email: '',
             password: '',
@@ -63,6 +64,7 @@ const Login  = (props) => {
                     value={formState.email}
                     onChange={handleChange}
                 />
+                
             </div>
             <br></br>
             <div className="form-group2">
