@@ -1,37 +1,52 @@
 import { gql } from '@apollo/client';
 
-
-export const addSkill = gql`
-  mutation addSkill($profileId: ID!, $skill: String!) {
-    addSkill(profileId: $profileId, skill: $skill) {
+export const AddUSER = gql`
+ mutation addUser($name: String!, $email: String!, $password: String!) {
+    addUser(name: $name, email: $email, password:  $password ){
+    user {
       _id
       name
-      skills
+      email
     }
   }
+}
 `;
 
-export const addProfile = gql`
-  mutation addProfile($name: String!, $email: String!, $password: String!) {
-    addProfile(name: $name, email: $email, password: $password) {
+export const LoginUSER = gql`
+  mutation signIn($email: String!, $password: String!) {
+    signIn(email: $email, password: $password) {
       token
-      profile {
+      user {
         _id
         name
+        email
+      }
+   }
+}
+`;
+
+export const DeleteUSER = gql`
+  mutation deleteUser($email: String!, $password: String!) {
+    deleteUser(email: $email, password: $password) {
+      user {
+        _id
+        name
+        email
       }
     }
   }
 `;
 
-
-export const loginUser = gql`
-  mutation login($email: String!, $password: String!) {
-    login(email: $email, password: $password) {
-      token
-      profile {
-        _id
-        name
-      }
+export const UpdatePW = gql`
+ mutation updatePassword($email: String!, $password: String!, $newpw: String!) {
+    updatePassword(email: $email, password: $password, newpassword: $newpw) {
+        user {
+            _id
+            name
+            email
+        }
     }
-  }
+}
 `;
+
+

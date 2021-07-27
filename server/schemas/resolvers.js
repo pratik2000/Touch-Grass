@@ -6,7 +6,7 @@ const { signToken } = require('../utils/auth');
 const resolvers = {
     Query: {
         greeting: () => {
-            return "hello from  TutorialsPoint !!!"
+            return "Welcome to Touch Grass Site !!!"
         },
 
         me: async (parent, arg, context) => {

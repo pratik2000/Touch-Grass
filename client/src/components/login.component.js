@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Link } from 'react-router-dom';
 //import React, { useState } from 'react';
 import { useMutation } from '@apollo/client';
-import { loginUser } from '../utils/mutations';
+import { LoginUSER } from '../utils/mutations';
 import Auth from '../utils/auth';
 //import HeaderHome from '../components/login.component';
 //import Navbar from '../components/Nav';
@@ -10,9 +10,9 @@ import Auth from '../utils/auth';
 
 const Login  = (props) => {
     const [formState, setFormState] = useState ({ email: '', password: '' });
-    const [signin, { error }] = useMutation(loginUser);
+    const [signin, { error }] = useMutation(LoginUSER);
 
-
+    // set state for alert - CSS NOTE: CREATE A MODAL FOR ALERT
     const [showAlert, setShowAlert] = useState (false);
 
     const handleChange = (event) => {
@@ -42,8 +42,7 @@ const Login  = (props) => {
             console.log(e);
             setShowAlert(true);
         }
-
-        
+        // clear form values
         setFormState({
             email: '',
             password: '',
@@ -56,7 +55,8 @@ const Login  = (props) => {
 
             <div className="form-group">
                 <label>Email</label>
-                <input type="email" className="form-control"
+                <input type="email"
+                    className="form-control"
                     placeholder="Enter email"
                     name="email"
                     type="email"
@@ -64,7 +64,6 @@ const Login  = (props) => {
                     value={formState.email}
                     onChange={handleChange}
                 />
-                
             </div>
             <br></br>
             <div className="form-group2">

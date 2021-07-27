@@ -12,6 +12,7 @@ import Nav from "./components/Nav";
 import Footer from "./components/Footer";
 import Login from "./components/login.component";
 import SignUp from "./pages/Signup";
+import SignUpC from "./components/signup.component";
 import Home from "./pages/Home";
 //import Auth from '../src/utils/auth';
 
@@ -50,7 +51,7 @@ function App() {
               <Login />
             </Route>
             <Route exact path="/signup">
-              <SignUp />
+              <SignUpC />
             </Route>
             <Route exact path="/">
               <Home />
