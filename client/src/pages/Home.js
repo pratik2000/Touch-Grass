@@ -10,7 +10,7 @@ function Home() {
     <div className="home" style={{ 
           backgroundImage: `url(${process.env.PUBLIC_URL + '/grass.png'})` }}>          
 
-        <div className="container">
+        <div className="container bg-grey">
 
               
               <div className="row align-items-center my-5">
