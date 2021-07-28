@@ -12,7 +12,6 @@ import Nav from "./components/Nav";
 import Footer from "./components/Footer";
 import Login from "./components/login.component";
 import SignUp from "./pages/Signup";
-import LetsPlay from "./pages/letsplay";
 import SignUpC from "./components/signup.component";
 import DelUser from "./components/deluser.component";
 import UpdateUser from "./components/updateuser.component";
@@ -65,11 +64,6 @@ function App() {
             <Route exact path="/updateuser">
                 <UpdateUser />
             </Route>
-
-            <Route exact path="/letsplay">
-                <LetsPlay />
-            </Route>
-
           </div>
           <Footer />
         </div>

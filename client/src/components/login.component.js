@@ -8,8 +8,7 @@ import Auth from '../utils/auth';
 const Login  = (props) => {
     const [formState, setFormState] = useState ({ email: '', password: '' });
     const [signin, { error }] = useMutation(LoginUSER);
-
-    // set state for alert - CSS NOTE: CREATE A MODAL FOR ALERT
+    
     const [showAlert, setShowAlert] = useState (false);
 
     const handleChange = (event) => {
@@ -23,6 +22,7 @@ const Login  = (props) => {
     const handleFormSubmit = async (event) => {
         event.preventDefault();
         console.log(formState);
+        const usergood = false;
         try {
             const mutationResponse = await signin({
                 variables: {
@@ -35,6 +35,7 @@ const Login  = (props) => {
             Auth.login(token);
 
             console.log(token);
+            usergood = true;
         } catch (e) {
             console.log(e);
             setShowAlert(true);
@@ -44,6 +45,11 @@ const Login  = (props) => {
             email: '',
             password: '',
         });
+
+        if (usergood) {
+            window.location.assign('/');
+        }
+
     };
 
     return (
@@ -93,17 +99,10 @@ const Login  = (props) => {
                 Home
               </Link>
 
-            <Link className="btn btn-success btn-block no-underline text-md" to='/Signup'>
-                Sign Up
-              </Link>
-
             <p className="forgot-password text-right">
                 <a href="/Signup">Need an account?</a>
             </p>
 
-            <button className="btn no-underline text-md">
-                <a href="/">Home</a>
-            </button>
         </form>
     );
 }

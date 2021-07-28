@@ -7,7 +7,7 @@ import Auth from '../utils/auth';
 
 const Login = (props) => {
     const [formState, setFormState] = useState({ email: '', password: '', newpassword: '' });
-    const [signin, { error }] = useMutation(UpdatePW );
+    const [updatepw, { error }] = useMutation(UpdatePW );
 
     // set state for alert - CSS NOTE: CREATE A MODAL FOR ALERT
     const [showAlert, setShowAlert] = useState (false);
@@ -24,11 +24,11 @@ const Login = (props) => {
         event.preventDefault();
         console.log(formState);
         try {
-            const mutationResponse = await signin({
+            const mutationResponse = await updatepw({
                 variables: {
                     email: formState.email,
                     password: formState.password,
-                    newpassword: formState.newpassword
+                    newpassword: formState.newpassword,
                 },
             });
 

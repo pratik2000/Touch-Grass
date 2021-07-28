@@ -4,27 +4,33 @@
 import decode from 'jwt-decode';
 
 
-class Auth {
+class AuthC {
   logout() {
-    localStorage.removeItem('id_token');
-    window.location.reload();
-   }
+      localStorage.removeItem('id_token');
+      window.location.assign('/');      
+  }
   
   loggedIn() {
     const token = this.getToken();
-    return token ? true : false;
+    return (!this.isTokenExpired(token) && token) ? true : false;
   }
-  getToken() {
 
+  getToken() {
     return localStorage.getItem('id_token');
   }
+
   getProfile() {
     return decode(this.getToken());
   }
-  login(idToken) {
-    localStorage.setItem('id_token', idToken);
-    window.location.assign('/');
+
+  login(id_token) {
+
+    localStorage.setItem('id_token', id_token);
+    window.location.assign('/letsPlay');
+
+    
   }
+
 }
 
-export default new Auth();
+export default new AuthC();

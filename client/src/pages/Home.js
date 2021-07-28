@@ -1,5 +1,6 @@
 import React from "react";
 import grasskid from '../images/touchgrasskid.jpg';
+import lawnGames from "../images/lawngames.png";
 import { Link } from 'react-router-dom';
 
 function Home() {
@@ -18,8 +19,13 @@ function Home() {
 
                 <img
                   className="img-fluid rounded mb-4 mb-lg-0"
-                   src="http://placehold.it/900x400"
+                   src="../images/touchgrasskid.jpg"
                   alt=""/>
+
+                    <img 
+                    className="img-fluid rounded mb-4 mb-lg-0"
+                    alt="picture of baby"
+                    src={grasskid} />
                   </div>
 
               <div className="col-lg-5">
