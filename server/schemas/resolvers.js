@@ -9,7 +9,7 @@ const resolvers = {
             return "Welcome to Touch Grass Site !!!"
         },
 
-        me: async (parent, arg, context) => {
+        whois: async (parent, arg, context) => {
 
             if (context.user) {
                 return User.findOne({ _id: context.user._id });
@@ -92,12 +92,12 @@ const resolvers = {
                     throw new AuthenticationError('No user with this email found!');
                 }
                 const correctPw = await user.isCorrectPassword(password);
-                var newpasswordHash = await user.GetPassWordHash(password);
+                var newpasswordHash = await user.GetPassWordHash(newpassword);
 
                 if (correctPw) {
                     //const token = signToken(user);
 
-                    return User.findOneAndUpdate(
+                    user = User.findOneAndUpdate(
                         { _id: user.id },
                         {
                             //$set: { email: newpassword  },

@@ -43,7 +43,14 @@ const Signup = (props) => {
             email: '',
             password: '',                        
         });
-        window.location.assign('/LetsPlay');
+        
+        if (Auth.loggedIn) {
+            window.location.assign('/LetsPlay');
+        } else {
+            //error
+        }
+
+        
     };
 
     return (

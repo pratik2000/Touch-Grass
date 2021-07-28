@@ -11,12 +11,12 @@ type User {
   
   type Auth {
     token: ID!
-    user: User! 
+    user: User
   }
 
   type Query {
     greeting:String
-    me: User
+    whois: User
     users: [User]
     user(name: String!): User        
     getUser:String    

@@ -39,12 +39,10 @@ export const DeleteUSER = gql`
 
 export const UpdatePW = gql`
  mutation updatePassword($email: String!, $password: String!, $newpw: String!) {
-    updatePassword(email: $email, password: $password, newpassword: $newpw) {
-        user {
-            _id
-            name
-            email
-        }
+    updatePassword(email: $email, password: $password, newpassword: $newpw) {        
+       _id
+       email
+       name
     }
 }
 `;

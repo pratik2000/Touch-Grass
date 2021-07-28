@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 //import React, { useState } from 'react';
 import { useMutation } from '@apollo/client';
 import { LoginUSER } from '../utils/mutations';
-import Auth from '../utils/auth';
+import AuthMetric from '../utils/auth';
 
 const Login  = (props) => {
     const [formState, setFormState] = useState ({ email: '', password: '' });
@@ -22,7 +22,6 @@ const Login  = (props) => {
     const handleFormSubmit = async (event) => {
         event.preventDefault();
         console.log(formState);
-        const usergood = false;
         try {
             const mutationResponse = await signin({
                 variables: {
@@ -32,24 +31,26 @@ const Login  = (props) => {
             });
 
             const token = mutationResponse.data.signin.token;
-            Auth.login(token);
+            AuthMetric.login(token);
 
+
+            // clear form values
+            setFormState({
+                email: '',
+                password: '',
+            });
+            window.location.assign('/LetsPlay');
             console.log(token);
-            usergood = true;
+
+            
+
         } catch (e) {
             console.log(e);
             setShowAlert(true);
         }
-        // clear form values
-        setFormState({
-            email: '',
-            password: '',
-        });
 
-        if (usergood) {
-            window.location.assign('/');
-        }
-
+        
+        
     };
 
     return (

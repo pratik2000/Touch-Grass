@@ -1,17 +1,17 @@
 import { gql } from '@apollo/client';
 
-export const query = gql`
-  query singleProfile($profileId: ID!) {
-    profile(profileId: $profileId) {
-      _id
-      name
-      skills
-    }
-  }
-`;
+//export const query = gql`
+//  query singleProfile($profileId: ID!) {
+//    profile(profileId: $profileId) {
+//      _id
+//      name
+//      skills
+//    }
+//  }
+//`;
 
 
-export const GetUser = gql`         //QUERY_USER
+export const GetUser = gql`        
   query user($username: String!) {
     user(username: $username) {
       _id
@@ -21,9 +21,9 @@ export const GetUser = gql`         //QUERY_USER
   }
 `;
 
-export const GetMe = gql`
-  query me {
-    me {
+export const GetWhois = gql`
+  query Whois {
+    Whois {
        _id
       name      
       email
@@ -33,12 +33,7 @@ export const GetMe = gql`
 
 
 export const GetGreetings = gql`
-  query me {
-    me {
-       _id
-      name      
-      email
-    }
+  query greetins {    
   }
 `;
 
