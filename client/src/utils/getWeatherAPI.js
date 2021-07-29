@@ -1,6 +1,6 @@
 //const APIKey = "2a2005a0ff35a5631cce91e317e7d835"; //>>> Move to HeroKu variable...API key unique to each acct
 
-const APIKey = process.env.WEATHER_API_KEY;
+const APIKey = process.env.WEATHER_API_KEY || "2a2005a0ff35a5631cce91e317e7d835";
 
 
 function fetchData (data, index) {
@@ -56,6 +56,12 @@ export function fetchWeather() {
 		console.log("Fetch Erro 2");
 	});
 }
+
+export function getWeather() {
+	return fetch(`https://api.openweathermap.org/data/2.5/weather?q=Raleigh&appid=2a2005a0ff35a5631cce91e317e7d835`);
+	//return fetch(`https://api.openweathermap.org/data/2.5/weather?q=Raleigh&appid=${process.env.WEATHER_API_KEY}`);
+};
+
 
 
 
