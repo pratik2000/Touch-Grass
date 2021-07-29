@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 //import React, { useState } from 'react';
 import { useMutation } from '@apollo/client';
 import { LoginUSER } from '../utils/mutations';
-import AuthMetric from '../utils/auth';
+import AuthC from '../utils/auth';
 
 const Login  = (props) => {
     const [formState, setFormState] = useState ({ email: '', password: '' });
@@ -31,7 +31,7 @@ const Login  = (props) => {
             });
 
             const token = mutationResponse.data.signin.token;
-            AuthMetric.login(token);
+            AuthC.login(token);
 
 
             // clear form values

@@ -4,8 +4,8 @@ function Footer() {
   return (
     <div className="footer">
       <footer class="py-2 bg-dark fixed-bottom">
-        <div class="container">
-          <p class="m-0 text-center text-black">
+        <div className="">
+          <p class="m-0 text-center text-light bg-gradient">
             Copyright &copy; Money
           </p>
         </div>

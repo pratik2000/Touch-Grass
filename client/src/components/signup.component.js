@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useMutation } from '@apollo/client';
 import { AddUSER } from '../utils/mutations';
-import AuthMe from '../utils/auth';
+import Auth from '../utils/auth';
 
 
 const Signup = (props) => {
@@ -32,7 +32,7 @@ const Signup = (props) => {
             });
             // using the token created log the user in
             const token = mutationResponse.data.addUser.token;
-            AuthMe.login(token);
+            Auth.login(token);
         } catch (e) {
             console.error(e);
             setShowAlert(true);
@@ -43,14 +43,10 @@ const Signup = (props) => {
             email: '',
             password: '',                        
         });
-        
-        if (AuthMe.loggedIn) {
-            window.location.assign('/LetsPlay');
+        if (Auth.loggedIn) {
+        window.location.assign('/LetsPlay');
         } else {
-            //error
         }
-
-        
     };
 
     return (

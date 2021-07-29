@@ -24,7 +24,6 @@ type User {
 
   type Mutation {
     addUser(name: String!, email: String!, password: String!): Auth
-    login(email: String!, password: String!): Auth
     signIn(email: String!, password: String!): Auth
     deleteUser(email: String!, password: String!): Auth
     updatePassword(email: String!, password: String!, newpassword:String!): User

@@ -2,25 +2,32 @@ import React from "react";
 import grasskid from '../images/touchgrasskid.jpg';
 import lawnGames from "../images/lawngames.png";
 import { Link } from 'react-router-dom';
+import Nav from '../components/Nav';
 
 function Home() {
 
   let url = 'https://www.gofundme.com/f/touchgrass';
-  return (
-    <div className="home" style={{ 
-          backgroundImage: `url(${process.env.PUBLIC_URL + '/grass.png'})` }}>          
+    return (
+        <div>
 
-        <div className="container bg-grey">
+            <div className="m-0 text-center text-light bg-gradient">
+                <nav class="navbar navbar-dark bg-gradient">
+                    <Nav/>
+                </nav>                
+            </div>
 
+            <div className="bg-gradient"
+                style={{
+                    color: "black",
+                    backgroundImage: `url(${process.env.PUBLIC_URL + '/grass.png'})`
+                }} >
+          
+
+            <div className="" >
               
-              <div className="row align-items-center my-5">
+                    <div className="row align-items-center text-dark bg-gradient">
                   
                   <div className="col-lg-7">
-
-                <img
-                  className="img-fluid rounded mb-4 mb-lg-0"
-                   src="../images/touchgrasskid.jpg"
-                  alt=""/>
 
                     <img 
                     className="img-fluid rounded mb-4 mb-lg-0"
@@ -28,35 +35,21 @@ function Home() {
                     src={grasskid} />
                   </div>
 
-              <div className="col-lg-5">
-                <h1 className="font-weight-light">Touch-Grass</h1>
+                  <div className="col-lg-5">
+                      <h1 className="font-weight-light">Touch-Grass</h1>
                     <p>
                           Welcome to Touch Grass! This site is currently under construction and we are plannning on bringing this project to life as soon
                           as possible! We just need to hit our goal of 1k to bring this app into production if you contribute today click the link below!
                     </p>
 
                       <a href={url}>Donate Today!  </a>
-
-                      <div>
-                          <Link to="/Login"> Sign in </Link>
-                      </div>
-
-                      <div>
-                          <Link to="/Signup"> Sign Up </Link>
-                      </div>
-
-                      <div>
-                          <Link to="/UpdateUser">Update User</Link>
-                      </div>
-
-                      <div>
-                          <Link to="/DelUser">Delete User</Link>
-                      </div>
+                      
               </div>
                     
             </div>
       </div>
-    </div>
+            </div>
+</div>
   );
 }
 

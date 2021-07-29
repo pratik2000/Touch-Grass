@@ -4,7 +4,7 @@
 import decode from 'jwt-decode';
 
 
-class AuthMe {
+class AuthC {
   logout() {
       localStorage.removeItem('id_token');
       window.location.assign('/');      
@@ -12,7 +12,7 @@ class AuthMe {
   
   loggedIn() {
     const token = this.getToken();
-      return (!this.CheckToken(token) && token) ? true : false;
+    return (!this.checkToken(token) && token) ? true : false;
   }
 
   getToken() {
@@ -23,23 +23,27 @@ class AuthMe {
     return decode(this.getToken());
   }
 
-    login(idToken) {    
-    localStorage.setItem('id_token', idToken);
-    //window.location.assign('/LetsPlay');
-  }
-
-    CheckToken(idToken) {
-        const decoded = decode(idToken);
-        if ( (60*24*3*(decoded.exp)) < Date.now()) { //3 Days
-            localStorage.removeItem('id_token');
-            return true;
+    checkToken(token) {    
+        try {
+            const decoded = decode(token);
+            //Expires in 3 Days 
+            if (((24 * 60 * 3)(decoded.exp)) < Date.now()) {
+                localStorage.removeItem('id_token');
+                return true;
+            }
+            return false;
+        } catch (e) {
+            console.log(e);
         }
+
         return false;
     }
 
-    getIDTokenInfo() {
-        return decode(this.getToken());
-    }
+  login(id_token) {
+    localStorage.setItem('id_token', id_token);
+    window.location.assign('/letsPlay');
+  }
+
 }
 
-export default new AuthMe();
+export default new AuthC();
