@@ -7,12 +7,15 @@ import decode from 'jwt-decode';
 class AuthC {
   logout() {
       localStorage.removeItem('id_token');
-      window.location.assign('/');      
+      window.location.assign('/');
+      debugger
   }
   
   loggedIn() {
     const token = this.getToken();
-    return (!this.checkToken(token) && token) ? true : false;
+      const va1 = !this.checkToken(token) && token;
+      debugger
+    return (va1) ? true : false;
   }
 
   getToken() {
@@ -40,7 +43,9 @@ class AuthC {
     }
 
   login(id_token) {
-    localStorage.setItem('id_token', id_token);
+      localStorage.setItem('id_token', id_token);
+      debugger
+
     window.location.assign('/letsPlay');
   }
 

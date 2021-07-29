@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 //import React, { useState } from 'react';
 import { useMutation } from '@apollo/client';
 import { UpdatePW  } from '../utils/mutations';
-import AuthC from '../utils/auth';
+import Auth from '../utils/auth';
 
 const Login = (props) => {
     const [formState, setFormState] = useState({ email: '', password: '', newpassword: '' });
@@ -33,7 +33,7 @@ const Login = (props) => {
             });
 
             const token = mutationResponse.data.signin.token;
-            AuthC.login(token);
+            Auth.login(token);
 
             console.log(token);
         } catch (e) {

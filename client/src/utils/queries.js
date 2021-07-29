@@ -22,8 +22,8 @@ export const GetUser = gql`         //QUERY_USER
 `;
 
 export const GetMe = gql`
-  query me {
-    me {
+  query whois {
+    whois {
        _id
       name      
       email

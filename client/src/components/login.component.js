@@ -23,37 +23,35 @@ const Login  = (props) => {
         event.preventDefault();
         console.log(formState);
         try {
+            debugger
             const mutationResponse = await signin({
                 variables: {
                     email: formState.email,
                     password: formState.password
                 },
             });
-
-            const token = mutationResponse.data.signin.token;
+            debugger
+            const token = mutationResponse.data.signIn.token;
             AuthC.login(token);
+            debugger
 
+        // clear form values
+        setFormState({
+            email: '',
+            password: '',
+        });
 
-            // clear form values
-            setFormState({
-                email: '',
-                password: '',
-            });
             window.location.assign('/LetsPlay');
             console.log(token);
-
-            
-
         } catch (e) {
             console.log(e);
             setShowAlert(true);
         }
 
-        
-        
     };
 
     return (
+        
         <form onSubmit={handleFormSubmit}>
             <h3>Sign In</h3>
 
@@ -97,7 +95,7 @@ const Login  = (props) => {
             <br></br>
 
             <Link className="btn btn-success btn-block no-underline text-md" to='/'>
-                Home
+                Home Chetan
               </Link>
 
             <p className="forgot-password text-right">

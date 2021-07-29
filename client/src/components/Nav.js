@@ -7,12 +7,14 @@ import AuthC from '../utils/auth';
 const Nav = () => {
     const logout = (event) => {
         event.preventDefault();
+        debugger
         AuthC.logout();
     };
 
     return (
         <div>
-            <nav class="navbar navbar-expand-xxl navbar-light ">                
+            
+            <nav class="navbar navbar-inverse navbar-static-top">
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
@@ -31,7 +33,7 @@ const Nav = () => {
                     </>
                 ) : (
                     <>
-                            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                            <div class="navbar-expand-sm" id="navbarSupportedContent">
                                 <ul class="navbar-nav mr-auto">
                                     <li class="nav-item active">
                                         <a class="nav-link" href="/">Home</a>
@@ -48,6 +50,11 @@ const Nav = () => {
                                     <li class="nav-item">
                                         <a class="nav-link" href="/DelUser">Delete</a>
                                     </li>
+                                    <li class="nav-item" >
+                                        <a class="nav-link" onClick={logout}>Sign Out</a>
+                                    </li>
+                                    <button className="btn btn-light m-2 ml-4 font-mono rounded-lg p-1"                                        
+                                        onClick={logout}>Sign out</button>
                                 </ul>
 
                             </div>
