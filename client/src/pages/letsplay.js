@@ -2,16 +2,22 @@ import React from "react";
 import LawnGamesimg from '../images/lawngames.png';
 import { Link } from 'react-router-dom';
 import grasskid from '../images/touchgrasskid.jpg';
+import Nav from '../components/Nav';
 
 function LetsPlay() {
 
   let url = 'https://www.gofundme.com/f/touchgrass';
-  return (
+    return (
+
     <div className="home" style={{ 
           backgroundImage: `url(${process.env.PUBLIC_URL + '/grass.png'})` }}>          
 
         <div className="container">
-
+                <div className="m-0 text-center text-light bg-gradient">
+                    <nav class="navbar navbar-dark bg-gradient">
+                        <Nav />
+                    </nav>
+                </div>
               
               <div className="row align-items-center my-5">
                   

@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { useMutation } from '@apollo/client';
 import { AddUSER } from '../utils/mutations';
 import AuthC from '../utils/auth';
-
+import Nav from '../components/Nav';
 
 const Signup = (props) => {
     const [formState, setFormState] = useState({ name: '', email: '', password: ''});
@@ -30,7 +30,7 @@ const Signup = (props) => {
                     password: formState.password,                    
                 },
             });
-            // using the token created log the user in
+
             const token = mutationResponse.data.addUser.token;
             AuthC.login(token);
         } catch (e) {
@@ -52,7 +52,11 @@ const Signup = (props) => {
     return (
         <>
             <div >
-                
+                <div className="m-0 text-center text-light bg-gradient">
+                    <nav class="navbar navbar-dark bg-gradient">
+                        <Nav />
+                    </nav>
+                </div>
                 <div >
                     <div >
                         <h3>Sign Up</h3>
