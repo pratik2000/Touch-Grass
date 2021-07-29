@@ -1,16 +1,17 @@
 import React, { useState } from "react";
 import { Link } from 'react-router-dom';
 //import React, { useState } from 'react';
+import AuthC from '../utils/auth';
 import { useMutation } from '@apollo/client';
 import { DeleteUSER } from '../utils/mutations';
 import Auth from '../utils/auth';
-
-const Login  = (props) => {
-    const [formState, setFormState] = useState ({ email: '', password: '' });
+import Nav from './Nav';
+const Login = (props) => {
+    const [formState, setFormState] = useState({ email: '', password: '' });
     const [signin, { error }] = useMutation(DeleteUSER);
 
-    // set state for alert - CSS NOTE: CREATE A MODAL FOR ALERT
-    const [showAlert, setShowAlert] = useState (false);
+
+    const [showAlert, setShowAlert] = useState(false);
 
     const handleChange = (event) => {
         const { name, value } = event.target;
@@ -31,10 +32,11 @@ const Login  = (props) => {
                 },
             });
 
-            const token = mutationResponse.data.signin.token;
-            Auth.login(token);
+            //const token = mutationResponse.data.signin.token;
+            //Auth.login(token);
 
-            console.log(token);
+            //console.log(token);
+            exit();
         } catch (e) {
             console.log(e);
             setShowAlert(true);
@@ -46,56 +48,68 @@ const Login  = (props) => {
         });
     };
 
+    function exit() {
+        window.location.assign('/');
+        AuthC.logout();
+    }
+
     return (
-        <form onSubmit={handleFormSubmit}>
-            <h1>DELETE PROFILE</h1>
-            <h3>Note: The Profile will be permanantly deleted!!!</h3>
-            <h3>Use Caution!!!</h3>
+        <div>
+            <nav class="navbar navbar-dark bg-gradient mb-2">
+                <Nav />
+            </nav>
 
-            <div className="form-group">
-                <label>Email</label>
-                <input type="email"
-                    className="form-control"
-                    placeholder="Enter email"
-                    name="email"
-                    type="email"
-                    id="email"
-                    value={formState.email}
-                    onChange={handleChange}
-                />
-            </div>
-            <br></br>
-            <div className="form-group2">
-                <label>Password</label>
-                <input
-                    className="form-control"
-                    placeholder="******"
-                    name="password"
-                    type="password"
-                    id="password"
-                    value={formState.password}
-                    onChange={handleChange}
-                />
-            </div>
+            <form onSubmit={handleFormSubmit}>
 
-            {error ? (
-                <div>
-                    <p className="error-text">Email or Password not found or does Match our records</p>
+                <h1>DELETE PROFILE</h1>
+                <h3>Note: The Profile will be permanantly deleted!!!</h3>
+                <h3>Use Caution!!!</h3>
+
+                <div className="form-group">
+                    <label>Email</label>
+                    <input type="email"
+                        className="form-control"
+                        placeholder="Enter email"
+                        name="email"
+                        type="email"
+                        id="email"
+                        value={formState.email}
+                        onChange={handleChange}
+                    />
                 </div>
-            ) : null}
+                <br></br>
+                <div className="form-group2">
+                    <label>Password</label>
+                    <input
+                        className="form-control"
+                        placeholder="******"
+                        name="password"
+                        type="password"
+                        id="password"
+                        value={formState.password}
+                        onChange={handleChange}
+                    />
+                </div>
 
-            <br></br>
+                {error ? (
+                    <div>
+                        <p className="error-text">Email or Password not found or does Match our records</p>
+                    </div>
+                ) : null}
+
+                <br></br>
 
 
-            <button type="submit" className="btn btn-success btn-block">Delete</button>
-            <br></br>
-            <br></br>
-            
-            
-            <button className="btn no-underline text-md">
-                <a href="/">Home</a>
-            </button>
-        </form>
+                <button type="submit" className="btn btn-success btn-block">Delete</button>
+                <br></br>
+                <br></br>
+
+
+
+            </form>
+
+        </div>
+
     );
 }
 

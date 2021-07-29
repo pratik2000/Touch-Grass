@@ -3,8 +3,26 @@ import grasskid from '../images/touchgrasskid.jpg';
 import lawnGames from "../images/lawngames.png";
 import { Link } from 'react-router-dom';
 import Nav from '../components/Nav';
+import { fetchWeather } from '../utils/getWeatherAPI';
+import { useState, useEffect } from 'react';
+
+// function to search for random recipes
+
+async function GetWeather() {  
+    try {
+        debugger
+        var p1 = await fetchWeather();
+        console.log(p1);
+        debugger
+    } catch (e) {
+        console.error(e);
+    }
+};
 
 function Home() {
+    // create state for holding returned spoonacular api data
+    const [searchedRecipes, setSearchedRecipes] = useState([]);
+    //useEffect(() => { GetWeather();}, []);  //API Key 
 
   let url = 'https://www.gofundme.com/f/touchgrass';
     return (
@@ -43,8 +61,9 @@ function Home() {
                     </p>
 
                       <a href={url}>Donate Today!  </a>
-                      
+
               </div>
+
                     
             </div>
       </div>
