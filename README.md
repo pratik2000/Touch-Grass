@@ -22,31 +22,39 @@ Touch Grass is an app that promotes creating new social connections in a time wh
 
 Technologies used:
 
-> GraphQL with Node.js and Express.js Server
-> MongoDB and Mongoose ODM for the database
-> Json Web Token
-> Deployed with Heroku
-> Google Maps API
-> Weather API
+1) GraphQL with Node.js and Express.js Server
+2) MongoDB and Mongoose ODM for the database
+3) Json Web Token
+4) Deployed with Heroku
+5) Google Maps API
+6) Weather API
 
 Usage:
+
 This app is purely for entertainment purposes and we do not accept any responsibility for any unintended use of this app.
 
 License:
+
 Copyright © Money. All rights reserved. Licensed under the MIT license.
 
 Contribution:
+
 Anyone can contribute!
 
 Testing:
+
 You can download our repository or visit our deployed app to play around with it!
 
 Usage:
+
 Run npm install on root directory, then npm run-script develop to get started!
 
 Questions?
+
 Github: CaptainQuickWit
+
 Email: cppatel720@gmail.com
 
 Deployment:
+
 https://unc-touch-grass-chetan-proj3.herokuapp.com/
