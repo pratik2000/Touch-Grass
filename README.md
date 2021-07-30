@@ -60,6 +60,9 @@ Deployment:
 https://unc-touch-grass-chetan-proj3.herokuapp.com/
 
 Authors:
+
   -- CaptainQuickWit | All project code && Deployment
+  
   -- thangnt336 | Background grass image, project planning
+  
   -- Lolikerz | research on leaftlet.js 
