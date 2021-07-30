@@ -7,7 +7,6 @@ import { DeleteUSER } from '../utils/mutations';
 import Auth from '../utils/auth';
 import Nav from './Nav';
 const Login = (props) => {
-    
     const [formState, setFormState] = useState({ email: '', password: '' });
     const [signin, { error }] = useMutation(DeleteUSER);
 

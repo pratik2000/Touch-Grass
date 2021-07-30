@@ -17,7 +17,7 @@ import SignUpC from "./components/signup.component";
 import DelUser from "./components/deluser.component";
 import UpdateUser from "./components/updateuser.component";
 import Home from "./pages/Home";
-//import Auth from '../src/utils/auth';
+import * as dotenv from 'dotenv';
 
 const httpLink = createHttpLink({
   uri: '/graphql',
@@ -42,6 +42,7 @@ const client = new ApolloClient({
 });
 
 function App() {
+   dotenv.config();
 
   return (
    <ApolloProvider client={client}>
